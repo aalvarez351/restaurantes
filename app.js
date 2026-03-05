@@ -8,7 +8,7 @@ const panel = document.getElementById("menuPanel")
 
 data.items.forEach(item=>{
 
-let div = document.createElement("div")
+let div=document.createElement("div")
 div.className="item"
 
 div.innerHTML=`
