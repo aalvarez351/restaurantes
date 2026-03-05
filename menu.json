@@ -1,0 +1,21 @@
+{
+  "restaurant": "Burger XR",
+  "phone": "50762982064",
+  "items": [
+    {
+      "name": "Burger Clásica",
+      "price": "$8.99",
+      "description": "Carne Angus, cheddar y bacon"
+    },
+    {
+      "name": "Papas Fritas",
+      "price": "$3.50",
+      "description": "Papas crujientes"
+    },
+    {
+      "name": "Refresco",
+      "price": "$2.00",
+      "description": "Bebida fría"
+    }
+  ]
+}

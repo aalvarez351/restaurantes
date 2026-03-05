@@ -1,0 +1,26 @@
+
+body{
+font-family: Arial, sans-serif;
+color:white;
+}
+
+#menuPanel{
+position:absolute;
+bottom:0;
+width:100%;
+background:rgba(0,0,0,0.8);
+padding:20px;
+}
+
+.item{
+margin-bottom:12px;
+}
+
+button{
+background:#ff5722;
+border:none;
+padding:10px 16px;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}

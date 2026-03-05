@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AR Restaurant Menu</title>
+
+<!-- A‑Frame -->
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
+<!-- AR.js -->
+<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body style="margin:0; overflow:hidden;">
+
+<div id="menuPanel"></div>
+
+<a-scene
+  embedded
+  arjs="sourceType: webcam; debugUIEnabled: false;">
+
+  <a-assets></a-assets>
+
+  <!-- Marker (puedes imprimir el patrón o usar QR que abra el link) -->
+  <a-marker preset="hiro">
+
+    <!-- Burger -->
+    <a-entity position="0 0.5 0" rotation="0 45 0"
+      animation="property: rotation; to: 0 360 0; loop:true; dur:8000">
+
+      <a-cylinder color="#C68642" radius="0.6" height="0.15" position="0 0 0"></a-cylinder>
+      <a-box color="#8B4513" depth="1" height="0.1" width="1" position="0 0.15 0"></a-box>
+      <a-cylinder color="#C68642" radius="0.6" height="0.15" position="0 0.3 0"></a-cylinder>
+
+    </a-entity>
+
+    <!-- Fries -->
+    <a-box color="red" depth="0.5" height="0.4" width="0.5" position="-1 0.25 0"></a-box>
+
+    <!-- Soda -->
+    <a-cylinder color="#222" radius="0.2" height="0.7" position="1 0.35 0"></a-cylinder>
+
+  </a-marker>
+
+  <a-entity camera></a-entity>
+
+</a-scene>
+
+<script src="app.js"></script>
+
+</body>
+</html>
