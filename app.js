@@ -14,7 +14,9 @@ div.className="item"
 div.innerHTML=`
 <b>${item.name}</b> - ${item.price}<br>
 ${item.description}<br>
-<button onclick="order('${item.name}','${data.phone}')">Ordenar</button>
+<button onclick="order('${item.name}','${data.phone}')">
+Ordenar
+</button>
 `
 
 panel.appendChild(div)
@@ -26,6 +28,7 @@ panel.appendChild(div)
 function order(item,phone){
 
 const url=`https://wa.me/${phone}?text=Quiero%20ordenar%20${encodeURIComponent(item)}`
+
 window.open(url)
 
 }
