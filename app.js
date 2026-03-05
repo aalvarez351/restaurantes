@@ -1,36 +1,37 @@
 
-async function loadMenu(){
+const images=[
+"https://images.unsplash.com/photo-1550547660-d9450f859349",
+"https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+"https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+"https://images.unsplash.com/photo-1606756790138-261d2b21cd6f"
+]
 
-const res = await fetch("menu.json")
-const data = await res.json()
+let index=0
 
-const panel = document.getElementById("menuPanel")
+function show(){
+document.getElementById("carouselImage").src=images[index]
+}
 
-data.items.forEach(item=>{
+function next(){
+index=(index+1)%images.length
+show()
+}
 
-let div=document.createElement("div")
-div.className="item"
+function prev(){
+index=(index-1+images.length)%images.length
+show()
+}
 
-div.innerHTML=`
-<b>${item.name}</b> - ${item.price}<br>
-${item.description}<br>
-<button onclick="order('${item.name}','${data.phone}')">
-Ordenar
-</button>
-`
+function diagnostics(){
 
-panel.appendChild(div)
+let status=document.getElementById("status")
 
-})
+if(navigator.mediaDevices){
+status.innerText="✔ Camera API available"
+}else{
+status.innerText="⚠ Camera API not detected"
+}
 
 }
 
-function order(item,phone){
-
-const url=`https://wa.me/${phone}?text=Quiero%20ordenar%20${encodeURIComponent(item)}`
-
-window.open(url)
-
-}
-
-loadMenu()
+diagnostics()

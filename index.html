@@ -1,48 +1,69 @@
 
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant XR Demo</title>
 
-<title>AR Restaurant Menu</title>
-
-<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aframe-ar@1.0.0/dist/aframe-ar.min.js"></script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<div id="menuPanel"></div>
+<h1>🍔 XR Restaurant Demo</h1>
 
-<a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+<div id="status">Checking device capabilities...</div>
 
-<a-camera>
+<!-- IMAGE CAROUSEL (always visible) -->
+<div class="carousel">
+<img id="carouselImage" src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<div class="controls">
+<button onclick="prev()">◀</button>
+<button onclick="next()">▶</button>
+</div>
+</div>
 
-<a-entity position="0 -0.4 -1.2">
+<h2>3D Food Viewer</h2>
 
-<a-cylinder color="#d8a35d" radius="0.35" height="0.12"></a-cylinder>
-<a-box color="#5b3a1a" width="0.7" height="0.12" depth="0.7" position="0 0.12 0"></a-box>
-<a-cylinder color="#d8a35d" radius="0.35" height="0.12" position="0 0.24 0"></a-cylinder>
+<model-viewer
+src="https://modelviewer.dev/shared-assets/models/Hamburger.glb"
+alt="Burger 3D"
+auto-rotate
+camera-controls
+ar
+ar-modes="webxr scene-viewer quick-look"
+style="width:100%; height:400px;">
+</model-viewer>
 
-</a-entity>
+<h2>Extra 3D Items</h2>
 
-<a-box color="red" width="0.4" height="0.45" depth="0.4" position="-0.7 -0.3 -1.2"></a-box>
+<div class="models">
 
-<a-cylinder color="#222" radius="0.18" height="0.6" position="0.7 -0.2 -1.2"></a-cylinder>
+<model-viewer
+src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+auto-rotate
+camera-controls
+style="width:100%; height:300px;">
+</model-viewer>
 
-<a-sphere color="yellow" radius="0.25" position="0.2 0.1 -1.1"></a-sphere>
+<model-viewer
+src="https://modelviewer.dev/shared-assets/models/RobotExpressive.glb"
+auto-rotate
+camera-controls
+style="width:100%; height:300px;">
+</model-viewer>
 
-</a-camera>
+<model-viewer
+src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"
+auto-rotate
+camera-controls
+style="width:100%; height:300px;">
+</model-viewer>
 
-<a-light type="ambient" intensity="1"></a-light>
-
-</a-scene>
+</div>
 
 <script src="app.js"></script>
 
